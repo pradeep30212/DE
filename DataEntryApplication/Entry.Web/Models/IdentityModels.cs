@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Entry.Web.Entities;
@@ -26,6 +27,7 @@ namespace Entry.Web.Models
         {
         }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<MeetingRoom> MeetingRooms { get; set; }
 
         public static ApplicationDbContext Create()
         {
