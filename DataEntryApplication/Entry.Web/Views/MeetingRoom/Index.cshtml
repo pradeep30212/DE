@@ -1,0 +1,33 @@
+﻿@model Entry.Web.Models.MeetingRoomViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MeetingRoomName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.MeetingRooms) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MeetingRoomName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MeetingRoomId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MeetingRoomId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MeetingRoomId })
+        </td>
+    </tr>
+}
+
+</table>
