@@ -19,7 +19,8 @@ namespace Entry.Web.Controllers
         // GET: Employee/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var model = new EmployeeViewModel();
+            return View(model.GetSingle(id));
         }
 
         // GET: Employee/Create

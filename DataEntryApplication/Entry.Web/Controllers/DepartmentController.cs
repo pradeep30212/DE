@@ -7,39 +7,39 @@ using System.Web.Mvc;
 
 namespace Entry.Web.Controllers
 {
-    public class MeetingRoomController : Controller
+    public class DepartmentController : Controller
     {
-        // GET: MeetingRoom
+        // GET: Department
         public ActionResult Index()
         {
-            var model = new MeetingRoomViewModel();
+            var model = new DepartmentViewModel();
             return View(model.Get());
-            
         }
 
-        // GET: MeetingRoom/Details/5
+        // GET: Department/Details/5
         public ActionResult Details(int id)
         {
-            var model = new MeetingRoomViewModel();
-            return View(model.Get());
+            var model = new DepartmentViewModel();
+            return View(model.GetSingle(id));
         }
 
-        // GET: MeetingRoom/Create
+        // GET: Department/Create
         public ActionResult Create()
         {
-            return View(new MeetingRoomViewModel());
+            return View(new DepartmentViewModel());
         }
 
-        // POST: MeetingRoom/Create
+        // POST: Department/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection, MeetingRoomViewModel meetingroomViewModel)
+        public ActionResult Create(FormCollection collection ,DepartmentViewModel departmentViewModel)
         {
             try
             {
                 // TODO: Add insert logic here
+
                 if (ModelState.IsValid)
                 {
-                    meetingroomViewModel.Save();
+                    departmentViewModel.Save();
                 }
 
                 return RedirectToAction("Index");
@@ -50,24 +50,23 @@ namespace Entry.Web.Controllers
             }
         }
 
-        // GET: MeetingRoom/Edit/5
+        // GET: Department/Edit/5
         public ActionResult Edit(int id)
         {
-            var model = new MeetingRoomViewModel();
-
+            var model = new DepartmentViewModel();
             return View(model.GetSingle(id));
         }
 
-        // POST: MeetingRoom/Edit/5
+        // POST: Department/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection, MeetingRoomViewModel meetingRoomViewModel)
+        public ActionResult Edit(int id, FormCollection collection , DepartmentViewModel departmentViewModel)
         {
             try
             {
                 // TODO: Add update logic here
-                if (ModelState.IsValid)
+                if(ModelState.IsValid)
                 {
-                    meetingRoomViewModel.Save();
+                    departmentViewModel.Save();
                 }
 
                 return RedirectToAction("Index");
@@ -78,26 +77,29 @@ namespace Entry.Web.Controllers
             }
         }
 
-        // GET: MeetingRoom/Delete/5
+        // GET: Department/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var model = new DepartmentViewModel();
+            var departmentViewModel = model.GetSingle(id);
+            return View(departmentViewModel);
         }
 
-        // POST: MeetingRoom/Delete/5
+        // POST: Department/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection,MeetingRoomViewModel model)
+        public ActionResult Delete(int id, FormCollection collection, DepartmentViewModel model)
         {
             try
             {
                 // TODO: Add delete logic here
-                model.DeleteMeetingRoom(id);
+                model.DeleteDepartment(id);
+
                 return RedirectToAction("Index");
             }
             catch
             {
-                var meetingRoomViewModel = model.GetSingle(id);
-                return View(meetingRoomViewModel);
+                var departmentViewModel = model.GetSingle(id);
+                return View(departmentViewModel);
             }
         }
     }

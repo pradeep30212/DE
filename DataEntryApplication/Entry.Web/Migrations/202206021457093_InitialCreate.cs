@@ -8,6 +8,15 @@ namespace Entry.Web.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.Departments",
+                c => new
+                    {
+                        DepartmentID = c.Int(nullable: false, identity: true),
+                        DepartmentName = c.String(),
+                    })
+                .PrimaryKey(t => t.DepartmentID);
+            
+            CreateTable(
                 "dbo.Employees",
                 c => new
                     {
@@ -19,6 +28,15 @@ namespace Entry.Web.Migrations
                         DepartmentId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.EmployeeId);
+            
+            CreateTable(
+                "dbo.MeetingRooms",
+                c => new
+                    {
+                        MeetingRoomId = c.Int(nullable: false, identity: true),
+                        MeetingRoomName = c.String(),
+                    })
+                .PrimaryKey(t => t.MeetingRoomId);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -107,7 +125,9 @@ namespace Entry.Web.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.MeetingRooms");
             DropTable("dbo.Employees");
+            DropTable("dbo.Departments");
         }
     }
 }

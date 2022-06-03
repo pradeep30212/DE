@@ -26,5 +26,17 @@ namespace Entry.Web.Controllers
 
             return View();
         }
+
+        public ActionResult Employee()
+        {
+            ViewBag.Message = "Your Employee page.";
+            return View();
+        }
+
+        public ActionResult Department()
+        {
+            ViewBag.Message = "Your Department page.";
+            return View();
+        }
     }
 }
