@@ -1,7 +1,14 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\DataEntryApplication",
+    "\\DataEntryApplication\\Entry.Web",
+    "\\DataEntryApplication\\Entry.Web\\Controllers",
+    "\\DataEntryApplication\\Entry.Web\\Entities",
+    "\\DataEntryApplication\\Entry.Web\\Models",
+    "\\DataEntryApplication\\Entry.Web\\Views",
+    "\\DataEntryApplication\\Entry.Web\\Views\\Shared"
   ],
-  "SelectedNode": "\\C:\\Users\\Dell\\Source\\Repos\\DE",
+  "SelectedNode": "\\DataEntryApplication\\Entry.Web\\Controllers\\ManageController.cs",
   "PreviewInSolutionExplorer": false
 }

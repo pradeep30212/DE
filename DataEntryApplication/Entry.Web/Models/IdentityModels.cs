@@ -30,6 +30,7 @@ namespace Entry.Web.Models
         public DbSet<Department> Departments { get; set; }
         public DbSet<MeetingRoom> MeetingRooms { get; set; }
         public DbSet<EmployeeSalary> EmployeeSalaries { get; set; }
+        public DbSet<Project> Projects { get; set; }
 
         public static ApplicationDbContext Create()
         {
