@@ -6,14 +6,14 @@ namespace Entry.Web.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
+    public sealed partial class DepartmentView : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(DepartmentView));
         
         string IMigrationMetadata.Id
         {
-            get { return "202205201521018_InitialCreate"; }
+            get { return "202206021459414_DepartmentView"; }
         }
         
         string IMigrationMetadata.Source

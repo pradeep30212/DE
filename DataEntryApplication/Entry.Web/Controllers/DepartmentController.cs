@@ -7,38 +7,39 @@ using System.Web.Mvc;
 
 namespace Entry.Web.Controllers
 {
-    public class EmployeeController : Controller
+    public class DepartmentController : Controller
     {
-        // GET: Employee
+        // GET: Department
         public ActionResult Index()
         {
-            var model = new EmployeeViewModel();
+            var model = new DepartmentViewModel();
             return View(model.Get());
         }
 
-        // GET: Employee/Details/5
+        // GET: Department/Details/5
         public ActionResult Details(int id)
         {
-            var model = new EmployeeViewModel();
+            var model = new DepartmentViewModel();
             return View(model.GetSingle(id));
         }
 
-        // GET: Employee/Create
+        // GET: Department/Create
         public ActionResult Create()
         {
-            return View(new EmployeeViewModel()) ;
+            return View(new DepartmentViewModel());
         }
 
-        // POST: Employee/Create
+        // POST: Department/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection, EmployeeViewModel employeeViewModel)
+        public ActionResult Create(FormCollection collection ,DepartmentViewModel departmentViewModel)
         {
             try
             {
                 // TODO: Add insert logic here
+
                 if (ModelState.IsValid)
                 {
-                    employeeViewModel.Save();
+                    departmentViewModel.Save();
                 }
 
                 return RedirectToAction("Index");
@@ -49,25 +50,25 @@ namespace Entry.Web.Controllers
             }
         }
 
-        // GET: Employee/Edit/5
+        // GET: Department/Edit/5
         public ActionResult Edit(int id)
         {
-            var model = new EmployeeViewModel();
-           
+            var model = new DepartmentViewModel();
             return View(model.GetSingle(id));
         }
 
-        // POST: Employee/Edit/5
+        // POST: Department/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection, EmployeeViewModel employeeViewModel)
+        public ActionResult Edit(int id, FormCollection collection , DepartmentViewModel departmentViewModel)
         {
             try
             {
-                if (ModelState.IsValid)
+                // TODO: Add update logic here
+                if(ModelState.IsValid)
                 {
-                    employeeViewModel.Save();
+                    departmentViewModel.Save();
                 }
-                
+
                 return RedirectToAction("Index");
             }
             catch
@@ -76,30 +77,29 @@ namespace Entry.Web.Controllers
             }
         }
 
-        // GET: Employee/Delete/5
+        // GET: Department/Delete/5
         public ActionResult Delete(int id)
         {
-            var model = new EmployeeViewModel();
-            var employeeViewModel = model.GetSingle(id);
-
-            return View(employeeViewModel);
+            var model = new DepartmentViewModel();
+            var departmentViewModel = model.GetSingle(id);
+            return View(departmentViewModel);
         }
 
-        // POST: Employee/Delete/5
+        // POST: Department/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection, EmployeeViewModel model)
+        public ActionResult Delete(int id, FormCollection collection, DepartmentViewModel model)
         {
             try
             {
                 // TODO: Add delete logic here
-                model.DeleteEmployee(id);
+                model.DeleteDepartment(id);
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                var employeeViewModel = model.GetSingle(id);
-                return View(employeeViewModel);
+                var departmentViewModel = model.GetSingle(id);
+                return View(departmentViewModel);
             }
         }
     }

@@ -168,24 +168,26 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\EmployeeSalaryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeetingRoomController.cs" />
+    <Compile Include="Entities\Department.cs" />
     <Compile Include="Entities\Employee.cs" />
     <Compile Include="Entities\EmployeeSalary.cs" />
     <Compile Include="Entities\MeetingRoom.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202205201521018_InitialCreate.cs" />
-    <Compile Include="Migrations\202205201521018_InitialCreate.Designer.cs">
-      <DependentUpon>202205201521018_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202206021457093_InitialCreate.cs" />
+    <Compile Include="Migrations\202206021457093_InitialCreate.Designer.cs">
+      <DependentUpon>202206021457093_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202205241412424_MeetingRoom.cs" />
-    <Compile Include="Migrations\202205241412424_MeetingRoom.Designer.cs">
-      <DependentUpon>202205241412424_MeetingRoom.cs</DependentUpon>
+    <Compile Include="Migrations\202206021459414_DepartmentView.cs" />
+    <Compile Include="Migrations\202206021459414_DepartmentView.Designer.cs">
+      <DependentUpon>202206021459414_DepartmentView.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202206061441417_EmploeeSalary.cs" />
     <Compile Include="Migrations\202206061441417_EmploeeSalary.Designer.cs">
@@ -194,6 +196,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EmployeeSalaryViewModel.cs" />
+    <Compile Include="Models\DepartmentViewModel.cs" />
     <Compile Include="Models\EmployeeViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -202,6 +205,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\DataEmployee.mdf" />
+    <Content Include="App_Data\DataEmployee_log.ldf">
+      <DependentUpon>DataEmployee.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -261,18 +268,21 @@
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Employee\Details.cshtml" />
+    <Content Include="Views\MeetingRoom\Index.cshtml" />
     <Content Include="Views\MeetingRoom\Create.cshtml" />
     <Content Include="Views\MeetingRoom\Edit.cshtml" />
     <Content Include="Views\MeetingRoom\Index.cshtml" />
     <Content Include="Views\MeetingRoom\Delete.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Department\Create.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\Department\Delete.cshtml" />
+    <Content Include="Views\Department\Details.cshtml" />
     <Content Include="Views\MeetingRoom\Details.cshtml" />
-    <Content Include="Views\EmployeeSalary\Create.cshtml" />
-    <Content Include="Views\EmployeeSalary\Index.cshtml" />
     <Content Include="Views\Employee\Create.cshtml" />
+    <Content Include="Views\Employee\Details.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -287,11 +297,11 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202205201521018_InitialCreate.resx">
-      <DependentUpon>202205201521018_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202206021457093_InitialCreate.resx">
+      <DependentUpon>202206021457093_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205241412424_MeetingRoom.resx">
-      <DependentUpon>202205241412424_MeetingRoom.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202206021459414_DepartmentView.resx">
+      <DependentUpon>202206021459414_DepartmentView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206061441417_EmploeeSalary.resx">
       <DependentUpon>202206061441417_EmploeeSalary.cs</DependentUpon>

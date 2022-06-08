@@ -27,6 +27,7 @@ namespace Entry.Web.Models
         {
         }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Department> Departments { get; set; }
         public DbSet<MeetingRoom> MeetingRooms { get; set; }
         public DbSet<EmployeeSalary> EmployeeSalaries { get; set; }
 
