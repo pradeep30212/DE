@@ -281,6 +281,8 @@
     <Content Include="Views\MeetingRoom\Details.cshtml" />
     <Content Include="Views\Employee\Create.cshtml" />
     <Content Include="Views\Employee\Details.cshtml" />
+    <Content Include="Views\EmployeeSalary\Create.cshtml" />
+    <Content Include="Views\EmployeeSalary\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
