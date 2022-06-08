@@ -26,6 +26,7 @@ namespace Entry.Web.Models
         {
         }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Project> Projects { get; set; }
 
         public static ApplicationDbContext Create()
         {

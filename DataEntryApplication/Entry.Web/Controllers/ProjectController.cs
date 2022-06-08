@@ -7,67 +7,68 @@ using System.Web.Mvc;
 
 namespace Entry.Web.Controllers
 {
-    public class EmployeeController : Controller
+    public class ProjectController : Controller
     {
-        // GET: Employee
+        // GET: Project
         public ActionResult Index()
         {
-            var model = new EmployeeViewModel();
+            var model = new ProjectViewModel();
             return View(model.Get());
         }
 
-        // GET: Employee/Details/5
+        // GET: Project/Details/5
         public ActionResult Details(int id)
         {
-            var model = new EmployeeViewModel();
+            var model = new ProjectViewModel();
             return View(model.GetSingle(id));
         }
 
-        // GET: Employee/Create
+        // GET: Project/Create
         public ActionResult Create()
         {
-            return View(new EmployeeViewModel()) ;
+            return View(new ProjectViewModel());
         }
 
-        // POST: Employee/Create
+        // POST: Project/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection, EmployeeViewModel employeeViewModel)
+        public ActionResult Create(FormCollection collection, ProjectViewModel projectViewModel)
         {
             try
             {
                 // TODO: Add insert logic here
                 if (ModelState.IsValid)
                 {
-                    employeeViewModel.Save();
+                    projectViewModel.Save();
                 }
 
                 return RedirectToAction("Index");
             }
-            catch
+            catch(Exception e)
             {
                 return View();
             }
         }
 
-        // GET: Employee/Edit/5
+        // GET: Project/Edit/5
         public ActionResult Edit(int id)
         {
-            var model = new EmployeeViewModel();
-           
+            var model = new ProjectViewModel();
+
             return View(model.GetSingle(id));
         }
 
-        // POST: Employee/Edit/5
+        // POST: Project/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection, EmployeeViewModel employeeViewModel)
+        public ActionResult Edit(int id, FormCollection collection, ProjectViewModel projectViewModel)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    employeeViewModel.Save();
+                    projectViewModel.Save();
                 }
-                
+                // TODO: Add update logic here
+
                 return RedirectToAction("Index");
             }
             catch
@@ -76,30 +77,29 @@ namespace Entry.Web.Controllers
             }
         }
 
-        // GET: Employee/Delete/5
+        // GET: Project/Delete/5
         public ActionResult Delete(int id)
         {
-            var model = new EmployeeViewModel();
-            var employeeViewModel = model.GetSingle(id);
+            var model = new ProjectViewModel();
+            var projectViewModel = model.GetSingle(id);
 
-            return View(employeeViewModel);
+            return View(projectViewModel);
         }
 
-        // POST: Employee/Delete/5
+        // POST: Project/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection, EmployeeViewModel model)
+        public ActionResult Delete(int id, FormCollection collection, ProjectViewModel model)
         {
             try
             {
-                // TODO: Add delete logic here
-                model.DeleteEmployee(id);
+                model.DeleteProject(id);
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                var employeeViewModel = model.GetSingle(id);
-                return View(employeeViewModel);
+                var projectViewModel = model.GetSingle(id);
+                return View(projectViewModel);
             }
         }
     }
