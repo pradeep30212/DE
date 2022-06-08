@@ -20,7 +20,8 @@ namespace Entry.Web.Controllers
         // GET: MeetingRoom/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var model = new MeetingRoomViewModel();
+            return View(model.GetSingle(id));
         }
 
         // GET: MeetingRoom/Create
@@ -80,7 +81,10 @@ namespace Entry.Web.Controllers
         // GET: MeetingRoom/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var model = new MeetingRoomViewModel();
+            var meetingRoommViewModel = model.GetSingle(id);
+
+            return View(meetingRoommViewModel);
         }
 
         // POST: MeetingRoom/Delete/5

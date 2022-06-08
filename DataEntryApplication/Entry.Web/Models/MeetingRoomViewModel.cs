@@ -10,11 +10,51 @@ namespace Entry.Web.Models
 
     {
         private readonly ApplicationDbContext _dbContext = new ApplicationDbContext();
+        private ApplicationDbContext applicationDbContext;
+
         [Key]
 
         public int MeetingRoomId { get; set; }
         [Required(ErrorMessage = "Meeting room name is mandatory.")]
         public string MeetingRoomName { get; set; }
+
+
+        public MeetingRoomViewModel() : this(new ApplicationDbContext())
+        {
+            //x = 200;
+            // constant - you can not intialize anywhere. YOu need to intialize at the time declaration.
+            // readonly - at the time of declaration and another inside a constructor.
+        }
+
+        public MeetingRoomViewModel(ApplicationDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+        public MeetingRoomViewModel Get()
+        {
+            MeetingRooms = GetMeetingRooms();
+            return this;
+        
+        }
+
+        private IEnumerable<MeetingRoomViewModel> GetMeetingRooms()
+        {
+            var meetingRooms = new List<MeetingRoomViewModel>();
+
+            var list = _dbContext.MeetingRooms.ToList();
+
+            foreach (var meetingRoom in list)
+            {
+                meetingRooms.Add(new MeetingRoomViewModel
+                {
+                    MeetingRoomId = meetingRoom.MeetingRoomId,
+                    MeetingRoomName = meetingRoom.MeetingRoomName,
+
+                });
+            }
+
+            return meetingRooms;
+        }
 
         internal void Save()
         {
@@ -41,9 +81,9 @@ namespace Entry.Web.Models
 
         internal void DeleteMeetingRoom(int id)
         {
-            var meetingRoom = _dbContext.Employees.FirstOrDefault(x => x.EmployeeId == id);
+            var meetingRoom = _dbContext.MeetingRooms.FirstOrDefault(x => x.MeetingRoomId == id);
 
-            _dbContext.Employees.Remove(meetingRoom);
+            _dbContext.MeetingRooms.Remove(meetingRoom);
 
             _dbContext.SaveChanges();
         }
@@ -67,15 +107,15 @@ namespace Entry.Web.Models
             return meetingRoomViewModel;
         }
 
-        internal MeetingRoomViewModel Get()
+       // internal MeetingRoomViewModel Get()
 
-        {
-            MeetingRooms = GetMeetingRoom();
-            return this;
+        //{
+           // MeetingRooms = GetMeetingRoom();
+           // return this;
             
-        }
+       // }
 
-        private IEnumerable<MeetingRoomViewModel> GetMeetingRoom()
+        /*private IEnumerable<MeetingRoomViewModel> GetMeetingRoom()
         {
             var meetingRooms = new List<MeetingRoomViewModel>();
 
@@ -92,7 +132,7 @@ namespace Entry.Web.Models
             }
 
             return meetingRooms;
-        }
+        }*/
 
         public IEnumerable<MeetingRoomViewModel> MeetingRooms { get; set; }
     }

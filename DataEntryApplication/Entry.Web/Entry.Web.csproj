@@ -169,10 +169,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\EmployeeSalaryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeetingRoomController.cs" />
     <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\EmployeeSalary.cs" />
     <Compile Include="Entities\MeetingRoom.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -185,8 +187,13 @@
     <Compile Include="Migrations\202205241412424_MeetingRoom.Designer.cs">
       <DependentUpon>202205241412424_MeetingRoom.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206061441417_EmploeeSalary.cs" />
+    <Compile Include="Migrations\202206061441417_EmploeeSalary.Designer.cs">
+      <DependentUpon>202206061441417_EmploeeSalary.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\EmployeeSalaryViewModel.cs" />
     <Compile Include="Models\EmployeeViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -250,15 +257,18 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Employee\Create.cshtml" />
     <Content Include="Views\Employee\Delete.cshtml" />
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Employee\Details.cshtml" />
-    <Content Include="Views\MeetingRoom\Index.cshtml" />
     <Content Include="Views\MeetingRoom\Create.cshtml" />
     <Content Include="Views\MeetingRoom\Edit.cshtml" />
+    <Content Include="Views\MeetingRoom\Index.cshtml" />
     <Content Include="Views\MeetingRoom\Delete.cshtml" />
+    <Content Include="Views\MeetingRoom\Details.cshtml" />
+    <Content Include="Views\EmployeeSalary\Create.cshtml" />
+    <Content Include="Views\EmployeeSalary\Index.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -282,6 +292,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205241412424_MeetingRoom.resx">
       <DependentUpon>202205241412424_MeetingRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206061441417_EmploeeSalary.resx">
+      <DependentUpon>202206061441417_EmploeeSalary.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
